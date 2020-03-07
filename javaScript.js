@@ -1,3 +1,4 @@
+
 document.body.style.height = '100vh';
 
 var title = document.getElementById('lyrics');
@@ -44,3 +45,11 @@ btnOne.addEventListener('click', function(event){
      ajax.open('GET', 'https://api.lyrics.ovh/v1/coldplay/yellow', true);
      ajax.send();
 });
+
+$('#pageContainer').click(function() {
+    $('#pageContainer').ripples({
+        perturbance: 0.003,
+    });
+
+})
+
