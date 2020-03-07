@@ -1,4 +1,3 @@
-
 document.body.style.height = '100vh';
 
 var title = document.getElementById('lyrics');
@@ -26,24 +25,26 @@ display.style.width = '80vw';
 display.style.position = 'absolute';
 display.style.top = 200 + "px";
 display.style.left = 40 + "px";
+display.style.color = 'yellow';
+display.style.textAlign = 'center';
 
 
 
 
-btnOne.addEventListener('click', function(event){
+btnOne.addEventListener('click', function(event) {
     let ajax = new XMLHttpRequest();
-        ajax.onreadystatechange = function() {
-         if(ajax.readyState == 4 && ajax.status == 200) {
-             display.innerHTML = " ";
-             var lyricsJSON = JSON.parse(ajax.responseText); 
-                display.innerHTML += '<p>' + lyricsJSON.lyrics.replace(/(?:\r\n|\r|\n)/g, '</p><br>'); 
-                                                  
-                           
-         } 
+    ajax.onreadystatechange = function() {
+        if (ajax.readyState == 4 && ajax.status == 200) {
+            display.innerHTML = " ";
+            var lyricsJSON = JSON.parse(ajax.responseText);
+            display.innerHTML += '<p>' + lyricsJSON.lyrics.replace(/(?:\r\n|\r|\n)/g, '</p><br>');
 
-     }
-     ajax.open('GET', 'https://api.lyrics.ovh/v1/coldplay/yellow', true);
-     ajax.send();
+
+        }
+
+    }
+    ajax.open('GET', 'https://api.lyrics.ovh/v1/coldplay/yellow', true);
+    ajax.send();
 });
 
 $('#pageContainer').click(function() {
@@ -52,4 +53,3 @@ $('#pageContainer').click(function() {
     });
 
 })
-
